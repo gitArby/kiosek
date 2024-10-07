@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Service Kiosk</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="welcomeScreen" class="screen visible">
+        <img src="images/logo.png" alt="Arby's Logo" class="logo">
+        <h1 id="welcomeText">Welcome to Arby's</h1>
+        <button id="startOrder" class="menu-button">Start Order</button>
+
+        <div class="language-selector">
+            <label for="languageSelect">Language: </label>
+            <select id="languageSelect" onchange="changeLanguage()">
+                <option value="en">English</option>
+                <option value="cz">Czech</option>
+                <option value="sk">Slovak</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="kioskScreen" class="screen hidden kiosk-screen">
+        <header class="kiosk-header">
+            <h1 id="menuTitle">Arby's Menu</h1>
+        </header>
+
+        <section class="menu-category">
+            <h2 id="burgerTitle">Burgers</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images/burger.webp" alt="Burger">
+                    <button class="menu-button" onclick="addItem('Burger', 5.99)">Order Now</button>
+                </div>
+                <div class="menu-item">
+                    <img src="images/chicken.webp" alt="Chicken Burger">
+                    <button class="menu-button" onclick="addItem('Chicken Burger', 6.49)">Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-category">
+            <h2 id="drinkTitle">Drinks</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images/drink.webp" alt="Soft Drink">
+                    <button class="menu-button" onclick="addItem('Soft Drink', 1.99)">Order Now</button>
+                </div>
+                <div class="menu-item">
+                    <img src="images/juice.webp" alt="Fresh Juice">
+                    <button class="menu-button" onclick="addItem('Fresh Juice', 2.99)">Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-category">
+            <h2 id="friesTitle">Fries</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images/fries.webp" alt="Fries">
+                    <button class="menu-button" onclick="addItem('Fries', 2.99)">Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="menu-category">
+            <h2 id="dessertTitle">Desserts</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="images/desert.webp" alt="Chocolate Cake">
+                    <button class="menu-button" onclick="addItem('Chocolate Cake', 3.49)">Order Now</button>
+                </div>
+                <div class="menu-item">
+                    <img src="images/ice.webp" alt="Ice Cream">
+                    <button class="menu-button" onclick="addItem('Ice Cream', 2.99)">Order Now</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="order-summary">
+            <h2 id="yourOrderText">Your Order</h2>
+            <div id="orderList"></div>
+            <p id="totalText">Total: <span id="totalPrice">$0.00</span></p>
+        </section>
+
+        <footer class="kiosk-footer">
+            <button id="confirmOrder" class="nav-button">Confirm Order</button>
+            <button id="cancelOrder" class="nav-button">Cancel Order</button>
+        </footer>
+    </div>
+
+    <div id="finalScreen" class="screen hidden">
+        <h2 id="paymentText">Payment</h2>
+        <p id="paymentInstruction">Scan the QR code to complete payment.</p>
+        <img src="images/code.png" alt="QR Code" class="qr-code">
+        <button id="completePayment" class="menu-button">Complete Payment</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
